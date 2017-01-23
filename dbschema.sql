@@ -9,5 +9,5 @@ CREATE TABLE IF NOT EXISTS booksBT(
   image_url VARCHAR( 3000 )
 );
 
-INSERT INTO booksBT( title, author, description, genre )
-VALUES ( 'Where the wild things are', 'Maurice Sendak', 'Where the Wild Things Are is fifty years old! Let the wild rumpus with Max and all the wild things continue as this classic comes to life as never before with new reproductions of Maurice Sendak', 'Fiction, Fantasy, Children Literature')
+INSERT INTO booksBT( title, author, description, genre)
+VALUES ( 'Where the wild things are', 'Maurice Sendak', 'Where the Wild Things Are is fifty years old! Let the wild rumpus with Max and all the wild things continue as this classic comes to life as never before with new reproductions of Maurice Sendak', 'Fiction, Fantasy, Children Literature');
