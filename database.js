@@ -1,8 +1,16 @@
-const pg = require('pg');
-const path = require('path');
-const connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/bumpy-tsessebe-db';
+const promise = require( 'bluebird')
+const options = { promiseLib: promise }
+const pgp = require( 'pg-promise' )( options )
+const CONNECTION_STRING = `pg://${process.env.USER}@localhost:5432/bumpy-tsessebe-db`
+const db = pgp( CONNECTION_STRING )
 
-const client = new pg.Client(connectionString)
-client.connect()
+const getAllItems = () =>
+  db.any( "SELECT * FROM booksbt ORDER BY title" )
 
-module.exports = client
+const getItem = (id) =>
+    db.one( "SELECT * FROM booksbt where id=$1", [id] )
+
+const addItem = book =>
+  db.oneOrNone( "INSERT INTO booksbt (title, author, description, genre, image_url) VALUES ($1, $2, $3, $4, $5)", [ book ] )
+
+module.exports = {getAllItems, getItem, addItem}

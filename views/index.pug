@@ -3,3 +3,44 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  .mainContainer
+    button.addBook.btn.btn-primary.btn-block(type='button', data-toggle='modal', data-target='#formModal') Add Book
+    br
+    .wrapper
+        ul.storeContainer
+          for book in bookstore
+            .bookContainer
+              img.bookCover(src=book.image_url, alt='Mountain View', style='width:230px;height:346px;')
+              li= book.title
+                p= book.author
+                p= book.description
+                br
+                br
+
+  #formModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='formModalLabel')
+    .modal-dialog(role='document')
+      .modal-content
+        form(method='post', action='/add')
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') ×
+            h4#formModalLabel.modal-title Add title
+              .modal-body
+                .form-group
+                  label Title
+                  input.form-control(type='text', name='name')
+                .form-group
+                  label Author
+                  input.form-control(type='text', name='name')
+                .form-group
+                  label Description
+                  input.form-control(type='text', name='name')
+                .form-group
+                  label Genre
+                  input.form-control(type='text', name='name')
+                .form-group
+                  label Image Url
+                  input.form-control(type='text', name='name')
+              .modal-footer
+                button.btn.btn-default(type='button', data-dismiss='modal') Close
+                input.btn.btn-primary(type='submit', value='Save')
