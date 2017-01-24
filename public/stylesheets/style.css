@@ -18,10 +18,8 @@ body {
 
 .btn-block {
   width: 30%;
-
-
-
 }
+
 .wrapper {
   background-color: rgba(0, 0, 0, .4);
   border-radius: 10px;
@@ -37,6 +35,18 @@ body {
   width: 15%;
   margin-right: 2%;
 }
+
+li {
+  list-style-type: none;
+}
+h4 {
+  color: black;
+}
+
+.form-group {
+  color: black;
+}
+
 a {
   color: #00B7FF;
 }

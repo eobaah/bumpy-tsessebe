@@ -6,14 +6,14 @@ const {getAllItems, getItem, addItem} = require('../database');
 router.get( '/', function( req, res, next ) {
   getAllItems()
     .then( bookstore => {
-      console.log(bookstore);
       res.render( 'index', { bookstore, title: 'Bookstore App' })
     })
 })
 
 router.post( '/', function( req, res, next ) {
-  const { item } = req.body
+  const item  = req.body
   addItem(item)
+  console.log(addItem)
     .then(() => res.redirect( '/'))
 })
 
