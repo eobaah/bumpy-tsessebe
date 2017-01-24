@@ -12,8 +12,8 @@ router.get( '/', function( req, res, next ) {
 
 router.post( '/', function( req, res, next ) {
   const item  = req.body
+  console.log(item)
   addItem(item)
-  console.log(addItem)
     .then(() => res.redirect( '/'))
 })
 

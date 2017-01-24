@@ -11,7 +11,7 @@ block content
           for book in bookstore
             li
               .bookContainer
-              img.bookCover(src=book.image_url, alt='Mountain View', style='width:230px;height:346px;')
+              img.bookCover(src=book.image_url, alt='book cover')
               p= book.title
               p= book.author
               p= book.description
@@ -28,19 +28,19 @@ block content
                     .modal-body
                       .form-group
                         label Title
-                        input.form-control(type='text', name='name')
+                        input.form-control(type='text', name='title')
                       .form-group
                         label Author
-                        input.form-control(type='text', name='name')
+                        input.form-control(type='text', name='author')
                       .form-group
                         label Description
-                        textarea.form-control(type='text', name='name')
+                        textarea.form-control(type='text', name='description')
                       .form-group
                         label Genre
-                        input.form-control(type='text', name='name')
+                        input.form-control(type='text', name='genre')
                       .form-group
                         label Image Url
-                        input.form-control(type='text', name='name')
+                        input.form-control(type='text', name='image')
                     .modal-footer
                       button.btn.btn-default(type='button', data-dismiss='modal') Close
                       input.btn.btn-primary(type='submit', value='Save')

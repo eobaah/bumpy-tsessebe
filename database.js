@@ -10,7 +10,11 @@ const getAllItems = () =>
 const getItem = (id) =>
     db.one( "SELECT * FROM booksbt where id=$1", [id] )
 
-const addItem = (title, author, description, genre, image) =>
+const addItem = ({ title, author, description, genre, image }) =>
   db.oneOrNone( "INSERT INTO booksbt (title, author, description, genre, image_url) VALUES ($1, $2, $3, $4, $5)", [title, author, description, genre, image] )
+
+// Concise approach to the above
+// const addItem = item =>
+//   db.oneOrNone( "INSERT INTO booksbt (title, author, description, genre, image_url) VALUES ($title, $author, $description, $genre, $image)", item )
 
 module.exports = {getAllItems, getItem, addItem}
