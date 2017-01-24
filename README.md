@@ -30,9 +30,9 @@ Creating this web application will provide exposure to:
 
 ## Daily goals
 | Mon | Tues | Wed | Thurs | Fri | Sat |Sun|
------------- |------------ |------------ |------------ |------------ |------------ |------------ |------------
+------------ |------------ |------------ |------------ |------------ |------------ |------------ |------------|
 |setup server; create schema and connect to the database|| | |||
-  Time|0 hrs|0 hrs|0 hrs|0 hrs|0 hrs|TBD|TBD
+  Time|0 hrs|0 hrs|0 hrs|0 hrs|0 hrs|TBD|TBD|
 
 
 
