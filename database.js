@@ -13,8 +13,14 @@ const getItem = (id) =>
 const addItem = ({ title, author, description, genre, image }) =>
   db.oneOrNone( "INSERT INTO booksbt (title, author, description, genre, image_url) VALUES ($1, $2, $3, $4, $5)", [title, author, description, genre, image] )
 
-// Concise approach to the above
-// const addItem = item =>
-//   db.oneOrNone( "INSERT INTO booksbt (title, author, description, genre, image_url) VALUES ($title, $author, $description, $genre, $image)", item )
+const updateItems = (id, book) => {
+    return db.oneOrNone( "UPDATE booksbt SET title=$2, author=$3, description=$4, genre=$5, image_url=$6 WHERE id=$1", [id, book.title, book.author, book.description, book.genre, book.image_url] )
+}
 
-module.exports = {getAllItems, getItem, addItem}
+const removeBooks = id =>
+  db.manyOrNone( "DELETE FROM booksbt WHERE id =$1", [ id ] )
+
+// const updateItems = ( item } ) =>
+//   db.oneOrNone( "UPDATE item SET $1 WHERE id=$2", item )
+
+module.exports = {getAllItems, getItem, addItem, removeBooks, updateItems}
