@@ -11,7 +11,7 @@ Creating this web application will provide exposure to:
 
 
 ## Specifications [Github](https://github.com/eobaah/bumpy-tsessebe)
-- [ ] Any user can add books into the system via an admin page
+- [ ] Any user can add books into the system via an admin modal
 - [ ] Books entered in the system are listed on the home page, in pages of 10
 - [ ] Users can search for books by title OR by author OR by genre, and search results will be presented in a new page
 - [ ] Users can view book details on a book detail page, linked to from the listing or search pages
@@ -29,10 +29,11 @@ Creating this web application will provide exposure to:
 
 
 ## Daily goals
-| Mon | Tues | Wed | Thurs | Fri | Sat |Sun|
------------- |------------ |------------ |------------ |------------ |------------ |------------ |------------|
-|setup server; create schema and connect to the database|| | |||
-  Time|0 hrs|0 hrs|0 hrs|0 hrs|0 hrs|TBD|TBD|
+|Day| Mon | Tues | Wed | Thurs | Fri | Sat |Sun|
+|------------|------------|------------|------------|------------|------------|------------ |------------ |
+||setup server; create schema and connect to the database; display content in app|||||||
+|Time|0 hrs|0 hrs|0 hrs|0 hrs|0 hrs|TBD|TBD
+
 
 
 
