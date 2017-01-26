@@ -21,7 +21,4 @@ const updateBook = (id, book) => {
 const removeBooks = id =>
   db.none( "DELETE FROM booksbt WHERE id=$1", [ id ] )
 
-// const updateItems = ( item } ) =>
-//   db.oneOrNone( "UPDATE item SET $1 WHERE id=$2", item )
-
 module.exports = {getAllItems, getItem, addItem, removeBooks, updateBook}

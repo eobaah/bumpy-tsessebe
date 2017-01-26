@@ -32,10 +32,8 @@ router.post( '/delete/:id', ( req, res, next ) => {
 router.post( '/edit/:id', ( req, res, next ) => {
   const id  = req.params.id
   const book  = req.body
-  console.log("book inside edit route",book)
   updateBook(id, book)
   .then(() => {
-    console.log('id inside route then ', id)
     res.redirect( '/')
   })
 })
