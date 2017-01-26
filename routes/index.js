@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const path = require( 'path' )
-const {getAllItems, getItem, addItem, removeBooks, updateItems} = require('../database');
+const {getAllItems, getItem, addItem, removeBooks, updateBook} = require('../database');
 
 router.get( '/', ( req, res, next ) => {
   getAllItems()
@@ -25,15 +25,19 @@ router.post( '/', ( req, res, next ) => {
 
 router.post( '/delete/:id', ( req, res, next ) => {
   const id = req.params.id
-  db.removeBooks(id)
-    .then((id) => res.redirect('/'))
+  removeBooks(id)
+    .then(() => res.redirect('/'))
 })
 
 router.post( '/edit/:id', ( req, res, next ) => {
   const id  = req.params.id
   const book  = req.body
-  updateItems(id, book)
-  .then(() => res.redirect( '/'))
+  console.log("book inside edit route",book)
+  updateBook(id, book)
+  .then(() => {
+    console.log('id inside route then ', id)
+    res.redirect( '/')
+  })
 })
 
 
