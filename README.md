@@ -31,7 +31,7 @@ Creating this web application will provide exposure to:
 ## Daily goals
 |Day| Mon | Tues | Wed | Thurs | Fri | Sat |Sun|
 |------------|------------|------------|------------|------------|------------|------------ |------------ |
-||setup server; create schema and connect to the database; display content in app|||||||
+||setup server; create schema and connect to the database; display content in app|implemented creat, read, update|implemented delete functionality and enhanced UI|worked on carousel on UI||||
 |Time|0 hrs|0 hrs|0 hrs|0 hrs|0 hrs|TBD|TBD
 
 
