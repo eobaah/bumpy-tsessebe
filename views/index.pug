@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  h1= title
+  h1.headTitleText= title
   p.titleText Welcome to #{title}
 
   .mainContainer
@@ -10,19 +10,20 @@ block content
 
     .wrapper
       ul.storeContainer
-
+        .contain
+          .row
+            .row__inner
         for book in bookstore
-          li.bookContainer
-            - var bookId = book.id+'editFormModal'
+          li.bookContainer.tile
+            - const bookId = book.id+'editFormModal'
             img.bookCover(src=book.image_url, alt='book cover')
+
             .bookText
               p= book.title
               p= book.author
-            button.btn.description.btn-default(data-toggle="collapse" href=`#description${book.id}`, aria-expanded="false" aria-controls=`description${book.id}`) Show description
+            button.btn.description.btn-default(data-toggle="modal" data-target=`#description${book.id}Modal`, data-id=book.id) Show description
             br
             br
-            .collapse(id=`description${book.id}`)
-              p= book.description
             .bottom-buttons
               button.btn.btn-default.edit-book(data-toggle='modal' data-target=`#${bookId}`, data-id=book.id)
                 span.glyphicon.glyphicon-edit(aria-hidden='true' )
@@ -66,7 +67,7 @@ block content
                   .modal-header
                     button.close(type='button', data-dismiss='modal', aria-label='Close')
                       span(aria-hidden='true') ×
-                    h4#editFormModalLabel.modal-title= book.id
+                    h4#editFormModalLabel.modal-title=`Edit: ${book.title}`
                   .modal-body
                     .form-group
                       label Title
@@ -84,5 +85,30 @@ block content
                       label Image Url
                       input.form-control(type='text', value=book.image_url, name='image_url', id="edit-form-image")
                   .modal-footer
-                    button.btn.btn-default(type='button', data-dismiss='modal') Close
-                    button.btn.btn-primary(type='submit', value='save' ) Save
+                          button.btn.btn-default(type='button', data-dismiss='modal') Close
+                          button.btn.btn-primary(type='submit', value='save' ) Save
+
+          .modal.fadeç(id=`description${book.id}Modal`, tabindex='-1', role='dialog', aria-labelledby='descriptionModalLabel', aria-hidden="true")
+            .modal-dialog(role='document')
+              .modal-content.closeDescription
+                    .modal-header
+                      button.close(type='button', data-dismiss='modal', aria-label='Close')
+                        span(aria-hidden='true') ×
+                      h4#descriptionModalLabel.modal-title=book.title
+                    .modal-body.description
+                      .form-group.sectionOne
+                        .leftContainer
+                            img.detailsBookCover(src=book.image_url, alt='book cover')
+                        .rightContainer
+                            p=`Author: ${book.author}`
+                            p=`Genre: ${book.genre}`
+                            br
+                            br
+                            button.btn.description.btn-default(data-toggle="collapse" href=`#description${book.id}`, aria-expanded="false" aria-controls=`description${book.id}`) Details
+                            br
+                            br
+                            .collapse(id=`description${book.id}`)
+                              p=`Description:`
+                              p=book.description
+                    .modal-footer
+                      button.btn.btn-default.description(type='button', data-dismiss='modal', data-target=`#description${book.id}Modal`, aria-label='Close') Close
