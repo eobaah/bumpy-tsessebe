@@ -1,7 +1,7 @@
 body, html {
-  /*background: url("/images/books.jpg") no-repeat center center fixed;
-  background: url("/images/bookshelf.jpg") no-repeat center center fixed;
-  background: url("/images/bibleOnBench.jpg") no-repeat center center fixed;*/
+  /*background: url("/images/books.jpg") no-repeat center center fixed;*/
+  /*background: url("/images/bookshelf.jpg") no-repeat center center fixed;*/
+  /*background: url("/images/bibleOnBench.jpg") no-repeat center center fixed;*/
   background: url("/images/booksInTheAir.jpg") no-repeat center center fixed;
   /*background: url("/images/breakfastReading.jpg") no-repeat center center fixed;*/
   /*background: url("/images/coupleReading.jpg") no-repeat center center fixed;*/
@@ -13,19 +13,10 @@ body, html {
   color: #fff;
 }
 
-.headTitleText{
-
-}
-
 .titleText{
   color: #fff;
-
 }
 
-/*.addBook {
-  position: fixed;
-
-}*/
 .mainContainer {
   display: flex;
   flex-direction: column;
@@ -35,9 +26,11 @@ body, html {
 .btn-block {
   width: 30%;
 }
+
 #formModalLabel.modal-title {
   margin-left: 2%;
 }
+
 .wrapper {
   display: flex;
   flex-direction: row;
@@ -52,6 +45,7 @@ body, html {
 .storeContainer {
   display: flex;
   flex-direction: row;
+  overflow: scroll;
 }
 
 .bookContainer {
@@ -71,6 +65,14 @@ body, html {
 .bookText {
   margin: 5% 0;
   height: 6em;
+}
+
+.bottom-buttons {
+  margin-top: 5%;
+}
+
+.btn.description {
+ margin: 5% 0;  
 }
 
 p {
@@ -101,39 +103,4 @@ h4 {
 
 .rightContainer p {
   font-size: 1.2em;
-}
-
-/*syling for our carousel*/
-
-.multi-item-carousel .carousel-inner > .bookContainer {
-  transition: 500ms ease-in-out left;
-}
-.multi-item-carousel .carousel-inner .active.left {
-  left: -33%;
-}
-.multi-item-carousel .carousel-inner .active.right {
-  left: 33%;
-}
-.multi-item-carousel .carousel-inner .next {
-  left: 33%;
-}
-.multi-item-carousel .carousel-inner .prev {
-  left: -33%;
-}
-@media all and (transform-3d), (-webkit-transform-3d) {
-  .multi-item-carousel .carousel-inner > .bookContainer {
-    transition: 500ms ease-in-out left;
-    transition: 500ms ease-in-out all;
-    backface-visibility: visible;
-    visibility: visible;
-  }
-}
-.multi-item-carousel .carouse-control.left,
-.multi-item-carousel .carouse-control.right {
-  visibility: visible;
-}
-
-.carousel-control {
-  width: 2%;
-  border-radius: 20px;
 }

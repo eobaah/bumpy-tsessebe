@@ -8,20 +8,17 @@ block content
     .mainContainer
       button.addBook.btn.btn-primary.btn-block(type='button', data-toggle='modal', data-target='#formModal') Add Book
       br
-      #theCarousel.wrapper.carousel.slide.multi-item-carousel
-        .storeContainer.carousel-inner
+      .wrapper
+        ul.storeContainer
           for book in bookstore
             li.bookContainer.item(id=book.id + '-item')
-              - const bookId = book.id+'editFormModal'
               img.bookCover(src=book.image_url, alt='book cover')
               .bookText
                 p= book.title
                 p= book.author
               button.btn.description.btn-default(data-toggle="modal" data-target=`#description${book.id}Modal`, data-id=book.id) Show description
-              br
-              br
               .bottom-buttons
-                button.btn.btn-default.edit-book(data-toggle='modal' data-target=`#${bookId}`, data-id=book.id)
+                button.btn.btn-default.edit-book(data-toggle='modal' data-target=`#edit${book.id}formModal`, data-id=book.id)
                   span.glyphicon.glyphicon-edit(aria-hidden='true' )
                   form.deleteContainer(method='POST', action='/delete/'+ book.id)
                     button.btn.btn-danger.delete-book(type="submit")
@@ -55,7 +52,7 @@ block content
                       button.btn.btn-default(type='button', data-dismiss='modal') Close
                       input.btn.btn-primary(type='submit', value='Save')
 
-            .modal.fade(id=`${bookId}`, tabindex='-1', role='dialog', aria-labelledby='editFormModalLabel')
+            .modal.fade(id=`edit${book.id}formModal`, tabindex='-1', role='dialog', aria-labelledby='editFormModalLabel')
               .modal-dialog(role='document')
                 .modal-content
                   form(method='POST', action='/edit/'+ book.id)
@@ -98,18 +95,9 @@ block content
                           .rightContainer
                               p=`Author: ${book.author}`
                               p=`Genre: ${book.genre}`
-                              br
-                              br
-                              button.btn.description.btn-default(data-toggle="collapse" href=`#description${book.id}`, aria-expanded="false" aria-controls=`description${book.id}`) Details
-                              br
-                              br
+                              button.btn.description.btn-primary(data-toggle="collapse" href=`#description${book.id}`, aria-expanded="false" aria-controls=`description${book.id}`) Details
                               .collapse(id=`description${book.id}`)
                                 p=`Description:`
                                 p=book.description
                       .modal-footer
                         button.btn.btn-default.description(type='button', data-dismiss='modal', data-target=`#description${book.id}Modal`, aria-label='Close') Close
-
-        a.left.carousel-control(href='#theCarousel', data-slide='prev')
-          i.glyphicon.glyphicon-chevron-left
-        a.right.carousel-control(href='#theCarousel', data-slide='next')
-          i.glyphicon.glyphicon-chevron-right
