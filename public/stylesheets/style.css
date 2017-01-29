@@ -1,4 +1,4 @@
-body {
+body, html {
   /*background: url("/images/books.jpg") no-repeat center center fixed;
   background: url("/images/bookshelf.jpg") no-repeat center center fixed;
   background: url("/images/bibleOnBench.jpg") no-repeat center center fixed;*/
@@ -7,19 +7,31 @@ body {
   /*background: url("/images/coupleReading.jpg") no-repeat center center fixed;*/
   /*background: url("/images/kidReading.jpg") no-repeat center center fixed;*/
   background-size: cover;
+  margin: 0;
   padding: 50px;
+
+
   font: 14px "Helvetica", Helvetica, Arial, sans-serif;
   color: #fff;
 }
 
+.headTitleText{
+
+}
+
 .titleText{
   color: #fff;
+
 }
+
+/*.addBook {
+  position: fixed;
+
+}*/
 .mainContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 .btn-block {
@@ -33,6 +45,8 @@ body {
   background-color: rgba(255, 255, 255, .4);
   border-radius: 10px;
   padding: 2%;
+  width: 500vh;
+  height: 70vh;
 }
 
 .storeContainer {
@@ -49,8 +63,13 @@ body {
   width:230px;
   height:346px;
 }
+
+.detailsBookCover {
+  width:170px;
+  height:250px;
+}
 .bookText {
-  margin-top: 5%;
+  margin: 5% 0;
   height: 6em;
 }
 
@@ -69,8 +88,17 @@ h4 {
   color: black;
 }
 
-/*css for our carousel*/
-.d-block {
-  height: 200px;
-  width: auto;
+.form-group.sectionOne {
+  display: flex;
+  flex-direction: row;
 }
+
+.rightContainer {
+  margin: 0 0 0 10%;
+}
+.rightContainer p {
+  font-size: 1.2em;
+}
+
+
+/*css for our carousel*/
